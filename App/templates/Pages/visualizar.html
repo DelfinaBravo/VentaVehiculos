@@ -20,9 +20,9 @@
                 <!-- Pasamos la Ruta de la Imagen Registrada -->
                 <img src="{{i.Imagen.url}}" class="card-img-top" alt="Imagen BD">
                 <div class="card-body">
-                  <h4 class="card-title">Nombre: {{i.Nombre}}</h4>
-                  <h5 class="card-title">Casa: {{i.Casa}}</h5>
-                  <p class="card-text">Hechizo: {{i.Hechizo}}</p>
+                  <h4 class="card-title">Modelo: {{i.Nombre}}</h4>
+                  <h5 class="card-title">Año: {{i.Casa}}</h5>
+                  <p class="card-text">Precio Contado: {{i.Hechizo}}</p>
                   {% if perms.App.change_personajes %}
                   <a href="{% url 'modificar' i.Codigo %}" class="btn btn-warning">Editar</a>
                   {% endif %}

@@ -2,14 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.body{
+    background-color: rgb(238, 238, 238);
 }
 
 /* -----> Configuracion de Index.html <----- */
 .encabezado {
     /* Altura */
-    height: 70px;
+    height: 80px;
     /* Color de Fondo */
-    background: #EEEEEE;
+    background: #ffffff;
     display: flex;
     /* Propiedad del Display Flex para acomodar los Elementos */
     justify-content: space-between;
@@ -23,40 +29,38 @@
 
 .menu_selectivo {
     /* Interlineado */
-    line-height: 65px;
+    margin-top: 30px;
     /* Margen Derecho */
-    margin-right: 10px;
+    margin-right: 20px;
+    
 }
 
 .menu_selectivo a {
     /* Margen Lateral derecho */
-    margin-right: 10px;
+    margin-right: 20px;
     /* Quitamos la linea Inferior a la etiqueta a */
     text-decoration: none;
     /* Cambiamos el Tamaño de Letra */
-    font-size: 16px;
+    font-size: 18px;
     /* Cambio de Color del Texto */
-    color: #343434;
+    color: #000000;
 }
 
 .menu_selectivo a:hover {
-    /* Relleno */
-    padding: 10px;
-    /* Redondear las Esquinas */
-    border-radius: 10px;
-    /* Color de Fondo */
-    background: #395090;
-    color: #FCFCFC;
+    text-decoration: underline blue 1.5px;
 }
 
-#contacto_btn {
-    /* Relleno */
-    padding: 10px;
-    /* Redondear las Esquinas */
+.carousel{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:rgb(0, 0, 168);
     border-radius: 10px;
-    /* Color de Fondo */
-    background: #395090;
-    color: #FCFCFC;
+    margin-top: 20px;
+}
+
+.carousel img{
+    border-radius: 10px;
 }
 
 .contenedor_general {
@@ -72,7 +76,6 @@
 .principal_intermedio{
     filter: contrast(120%);
 }
-
 
 .contenedor_index {
     display: flex;
@@ -107,8 +110,6 @@
     line-height: 28px;
     color: #343434;
 }
-
-
 
 footer {
     margin-top: 5px;
