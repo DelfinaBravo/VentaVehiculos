@@ -22,9 +22,10 @@
 }
 
 .logotipo {
-    margin-left: 10px;
-    width: 70px;
-    height: 70px;
+    margin-left: 20px;
+    width: 100px;
+    margin-top: 10px;
+    height: 60px;
 }
 
 .menu_selectivo {
