@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<diseñohtml lang="en">
 {% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSite</title>
+    <title>Nexus</title>
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Hoja de Estilos de Bootstrap -->
@@ -15,7 +15,7 @@
 
 <body class="body">
     <header class="encabezado">
-       <a href="{% url 'inicio' %}"><img src="{% static 'img/index/logo.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
+       <a href="{% url 'inicio' %}"><img src="{% static 'img/index/Nexus.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
         <nav class="menu_selectivo">
             <a href="{% url 'agregar' %}">Vende tu auto</a>
             <!-- Nombre de URL-- visualizar -->
@@ -36,13 +36,13 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{% static 'img/Autos/autoFamilia.jpg' %}" class="d-block w-100" alt="...">
+                <img src="{% static 'img/Autos/Jeep Renegade.png' %}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="{% static 'img/Autos/autoCarretera.jpg' %}" class="d-block w-100" alt="...">
+                <img src="{% static 'img/Autos/Volkswagen Polo.jpg' %}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="{% static 'img/Autos/autoMar.jpg' %}" class="d-block w-100" alt="...">
+                <img src="{% static 'img/Autos/Volkswagen Taos 1.4 250 Tsi Comfortline.jpg' %}" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -56,82 +56,6 @@
           </div>
         {% endblock %}
     </section>
-    <!-- <main class="contenedor_general">
-        {% block cuerpo %}
-        <div class="contenedor_index"> 
-            <img src="{% static 'img/index/Hogwarts.png' %}" alt="">
-            <article class="artitulo">
-                <h2>Colegio Hogwarts de Magia y Hechicería</h2>
-                <p>Es un internado mágico ubicado en Escocia. El castillo se ubica en unas montañas cercanas a un
-                    lago. La localización exacta no ha sido descubierta ya que está escondida por los más poderosos
-                    encantamientos posibles. Sin embargo, de acuerdo con Hermione Granger, no está muy lejos de
-                    Dufftown. Los encantamientos que protegen al castillo son clasificados como encantamientos
-                    anti-aparición y encantos repelentes de Muggles (como el repello muggletum), que lo hacen que ellos
-                    vean unas ruinas antiguas con un letrero que dice "Peligro, prohibido el paso" en lugar del
-                    castillo. Estos encantamientos pueden ser levantados por el Director. La mayoría de los dispositivos
-                    electrónicos no funcionan en los terrenos de Hogwarts. En un momento dado, Hogwarts llegó a
-                    tener 1000 estudiantes.</p>
-                <h4>Perspectiva general</h4>
-                <p>Hogwarts es una de las tres escuelas más importantes de Europa, que entrena a personas con
-                    habilidades mágicas para que se conviertan en magos y brujas cualificados. Su estatus no es muy
-                    discutido en las novelas de Harry Potter, pero es conocida como un internado de secundaria que
-                    aborda a niños de 11 a 17 años.</p>
-        </div>
-
-        <div class="tarjetas_index">
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Gryffindor.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Gryffindor es una de las cuatro casas del Colegio Hogwarts de Magia y Hechicería, fundada por
-                        Godric Gryffindor. Su animal emblemático es el león y sus colores son el rojo escarlata y el
-                        dorado. Minerva McGonagall es la más reciente jefa de la casa.
-                    </div>
-                </div>
-            </div>
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Hufflepuff.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Hufflepuffes una de las cuatro casas del Colegio Hogwarts de Magia y
-                        Hechicería. Su fundadora es la bruja medieval Helga Hufflepuff. La jefa de la casa es Pomona
-                        Sprout.El fraile gordo es el fantasma de la casa
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Ravenclaw.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Ravenclawes una de las cuatro casas que componen el Colegio Hogwarts de Magia
-                        y Hechicería, fundada por Rowena Ravenclaw, quién tuvo una hija, cuyo fantasma es la Dama
-                        Gris la cual fue asesinada por el Barón Sanguinario.
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjeta_volteo">
-                <div class="tarjeta_volteo-interno">
-                    <div class="tarjeta_volteo-front">
-                        <img src="{% static 'img/index/Slytherin.jpg' %}" alt="">
-                    </div>
-                    <div class="tarjeta_volteo-back">
-                        Slytherin es una de las cuatro casas del Colegio Hogwarts de Magia
-                        y Hechicería, fundada por Salazar Slytherin. Al establecer la casa, Salazar instruyó al Sombrero
-                        Seleccionador para que seleccionara a los estudiantes que tenían las características
-                        particulares que él valoraba más
-                    </div>
-                </div>
-            </div>
-
-        </div> -->
 
         <h1 class="subtitulo_index">Elegi tu proximo auto</h1>
         <div class="contenedor_visualizar">
@@ -160,13 +84,38 @@
               {% endfor %}
         </div>
 
-        {% endblock %}
+       
     </main>
-    <footer>
-        <img src="{% static 'img/index/ig.png' %}" alt="">
-        <img src="{% static 'img/index/facebook.png' %}" alt="">
-        <img src="{% static 'img/index/whatsapp.png' %}" alt="">
-        <img src="{% static 'img/index/gorjeo.png' %}" alt="">
+     <!-- Sector Footer -->
+     <footer>
+        <div class="grid">
+            <div class="item"><p>Contacto</p>
+                <div class="info">
+                    <p>Buenos Aires - Argentina</p>
+                    <p>infonexus@gmail.com</p>
+                    <p>2152-8250</p>
+                </div>
+            </div>
+            <div class="item"><p>Redes Sociales</p>
+                    <div class="redes">
+                        <a href=""> <img class="imgredes" src="{% static 'img/index/facebook.png' %}" alt="" width="50px"></a>
+                        <a href=""><img class="imgredes" src="{% static 'img/index/gorjeo.png' %}" alt="" width="50px"></a>
+                        <a href=""><img class="imgredes" src="{% static 'img/index/ig.png' %}" alt="" width="50px"></a>
+                        <a href=""><img class="imgredes" src="{% static 'img/index/whatsapp.png' %}" alt="" width="50px"></a> 
+                    </div>
+            </div>
+            <div class="item"><p>Ubicacion</p>
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.9158722651814!2d-58.50334891114503!3d-34.631566199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9eda4081ad1%3A0x562f7ca5055fb8b6!2sJN%20AUTOMOTORES%20SRL!5e0!3m2!1sen!2sar!4v1727930479085!5m2!1sen!2sar" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+       
+         <div class="derechos">
+            <p>_____________________________________________________________________________________________________________________________________________</p>
+            <p>&copy; 2016 | Consesionaria Nexus |<a href=""> www.Nexus.com</a> </p>
+            <!-- <p>&copy; 2024 Grupo de estudiantes de la Técnica N*1 de Esteban Echeverría. Todos los derechos reservados.</p> -->
+         </div>
     </footer>
     <!-- Hoja de Acciones de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
