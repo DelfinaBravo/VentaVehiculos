@@ -90,44 +90,41 @@
                   </button>
               </div>
           </div>
-      </div>
-        {% endblock %}
+    </div>
+    {% endblock %}
     </section>
-
+    {% block cuerpo %}
     <h1 class="tit">Descubre tu próximo auto</h1>
      <!-- ------cartas: ------------>
      <div class="contenedor_visualizar">
-       <!-- 
-                i-- Variable para el conteo
-                forms -- Palabra enviada desde "Data" para Traer los Datos
-                for -- Ciclo por Conteo
-                Desde el Primer Elemento hasta el Ultimo elemento
-            -->
-            {% for i in forms %}
-            <div class="card">
-             <a href="" class="cartaauto">
-             <!-- Pasamos la Ruta de la Imagen Registrada -->
-              <img src="{{i.Imagen.url}}" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <h1 class="card-title">{{i.Nombre}}</h1>
-                  <p class="card-title">Precio contado:</p>
-                  <p class="card-title">{{i.precio}}</p>
-                  <p class="card-text">{{i.lugar}}</p>
-                  {% if perms.App.change_personajes %}
-                  <a href="{% url 'modificar' i.Codigo %}" class="btn btn-warning">Editar</a>
-                  {% endif %}
-                  {% if perms.App.delete_personajes %}
-                  <a href="{% url 'eliminar' i.Codigo %}" class="btn btn-danger">Eliminar</a>
-                  {% endif %}
-              </div>
-            </a>
+        <!-- variable parae el conteo: -->
+         <!-- forms palabra enviada desde "data" para traer los datos
+          for----Ciclopor conteo
+          desde el primer elemento hasta el ultimo elemento
+        -->
+        {% for i in forms %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{i.Imagen.url}}" class="card-img-top" alt="imagen bd">
+            <div class="card-body">
+              <h5 class="card-title">Nombre: {{i.Nombre}}</h5>
+              <h5 class="card-text">Marca: {{i.Marca}}</h5>
+              <h5 class="card-text">Lugar: {{i.Lugar}}</h5>
+              <h5 class="card-text">Precio a contado: ${{i.Precio}}</h5>
+              {% if perms.App.change_Vehiculos %}
+              <a href="{% url 'modificar' i.Codigo %}" class="btn btn-primary">Editar</a>
+              {% endif %}
+              {% if perms.App.delete_Vehiculos %}
+              <a href="{% url 'eliminar' i.Codigo %}" class="btn btn-danger">Eliminar</a>
+              {% endif %}
             </div>
-            {% endfor %}
+        </div> 
+        {% endfor %}
       </div>
       <div class="contenedorimagen">
-          <button type="button" class="btn btn-light">Ver Mas Vehiculos</button>
+          <button type="button" class="btn btn-light btn3">Ver Mas Vehiculos</button>
           <img src="{% static 'img/autos/imagenabajo.png' %}" alt="" class="imgprincipal">
       </div>
+      {% endblock %}
     </main>
      <!-- Sector Footer -->
      <footer>
@@ -149,13 +146,13 @@
             </div>
             <div class="item"><p>Ubicacion</p>
                 <div class="mapa">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.9158722651814!2d-58.50334891114503!3d-34.631566199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9eda4081ad1%3A0x562f7ca5055fb8b6!2sJN%20AUTOMOTORES%20SRL!5e0!3m2!1sen!2sar!4v1727930479085!5m2!1sen!2sar" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.9158722651814!2d-58.50334891114503!3d-34.631566199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9eda4081ad1%3A0x562f7ca5055fb8b6!2sJN%20AUTOMOTORES%20SRL!5e0!3m2!1sen!2sar!4v1727930479085!5m2!1sen!2sar" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
                 </div>
             </div>
         </div>
         <div class="derechos">
           <hr style="border: 2px solid black;">
-          <p>&copy; 2016 | Consesionaria Nexus |<a href=""> www.Nexus.com</a> </p>
+          <p>&copy; 2016 | Consesionaria Nexus |<a href=""> www.Nexus.com</a></p>
           <!-- <p>&copy; 2024 Grupo de estudiantes de la Técnica N*1 de Esteban Echeverría. Todos los derechos reservados.</p> -->
         </div>
     </footer>

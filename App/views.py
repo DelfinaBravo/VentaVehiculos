@@ -9,59 +9,59 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 def Home(request):
-    buscar=Personajes.objects.all().order_by('-Codigo')[:3]
+    buscar=Vehiculos.objects.all().order_by('-Codigo')[:6]
     data={
         'forms':buscar
     }
     return render (request,'index.html',data)
 
-def ver_Personajes(request):
-    #--->TREAMOS TODOS LOS ELEMENTOS DEL TABLA
-    buscar=Personajes.objects.all()
-    data={
-        'forms':buscar
-    }
-    return render(request,'Pages/visualizar.html',data)
 
 @login_required
 
-@permission_required('App.add_personajes')
+@permission_required('App.add_autos')
 def Agregar(request):
     data={
-        'forms':NuevoPersonaje()
+        'forms':NuevoVehiculos()
     }
     if request.method=='POST':
-        query=NuevoPersonaje(data=request.POST,files=request.FILES)
+        query=NuevoVehiculos(data=request.POST,files=request.FILES)
         if  query.is_valid():
             query.save()
             data['mensaje']="Datos Registrados"
         else:
-            data['forms']=NuevoPersonaje
+            data['forms']=NuevoVehiculos
     return render (request,'Pages/agregar.html',data)
 
-
-@permission_required('App.change_personajes')
-def Modificar_Personajes(request,Codigo):
-    sql=get_object_or_404(Personajes,Codigo=Codigo)
+def ver_Vehiculos(request):
+    #--->TREAMOS TODOS LOS ELEMENTOS DEL TABLA
+    buscar=Vehiculos.objects.all()
     data={
-        'forms':NuevoPersonaje(instance=sql)
+        'forms':buscar
+    }
+    return render(request,'Pages/visualizar.html',data)
+# boton modificar. 
+@permission_required('App.change_Vehiculos')
+
+def Modificar_Vehiculos(request,Codigo):
+    sql=get_object_or_404(Vehiculos,Codigo=Codigo)
+    data={
+        'forms':NuevoVehiculos(instance=sql)
     }
     if request.method=='POST':
-        query=NuevoPersonaje(data=request.POST,instance=sql,files=request.FILES)
+        query=NuevoVehiculos(data=request.POST,instance=sql,files=request.FILES)
         if  query.is_valid():
             query.save()
             data['mensaje']="Datos Modificados Correctamente "
         else:
-            data['forms']=NuevoPersonaje
+            data['forms']=NuevoVehiculos
     return render (request,'Pages/modificar.html',data)
 
-
-@permission_required('App.delete_personajes')
-def Eliminar_Personajes(request,Codigo):
-    buscar=get_object_or_404(Personajes,Codigo=Codigo)
+# boton eliminar
+@permission_required('App.delete_Vehiculos')
+def Eliminar_Vehiculos(request,Codigo):
+    buscar=get_object_or_404(Vehiculos,Codigo=Codigo)
     buscar.delete()
     return redirect(to="visualizar")
-
 
 def salir(request):
     logout(request)

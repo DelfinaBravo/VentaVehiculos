@@ -4,18 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nexus registro</title>
+    <link rel="shortcut icon" href="{% static 'img/Autos/Nexus.png'%}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <div class="contendor_login">
-        <img src="" alt="">
-        <form action="" method="post">
-            <h1>Login</h1>
+<body>  
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- Nombre a la izquierda -->
+                <a class="navbar-brand" href="{% url 'inicio' %}"><img src="{% static 'img/Autos/Nexus.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
+                <!-- Botón colapsable en móviles -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Elementos del menú -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Botón para cerrar el menú -->
+                    <span class="close-btn"
+                        onclick="document.getElementById('navbarNav').classList.remove('show')">&times;</span>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'agregar' %}">Vende tu auto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'visualizar' %}">Compra tu auto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Contacto</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        {% csrf_token %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logouts' %}"><h4>Logout</h4></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'login' %}"><h4>Login</h4></a>
+                        </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <form action="php/login.php" method="post" class="conenedor_login">
+            <h1 class="titform">Iniciar Sesión</h1>
             {% csrf_token %} 
             {{form}}
             <input type="submit" value="Login">
-        </form>
-    </div>
+        </form> 
+    </main>
+    <!-- Sector Footer -->
+    <footer>
+        <div class="grid">
+            <div class="item"><p>Contacto</p>
+                <div class="info">
+                    <p>Buenos Aires - Argentina</p>
+                    <p>infonexus@gmail.com</p>
+                    <p>2152-8250</p>
+                </div>
+            </div>
+            <div class="item"><p>Redes Sociales</p>
+                    <div class="redes">
+                        <a href=""> <img class="imgredes" src="{% static 'img/index/facebook.png' %}" alt="" width="50px"></a>
+                        <a href=""><img class="imgredes" src="{% static 'img/index/gorjeo.png' %}" alt="" width="50px"></a>
+                        <a href=""><img class="imgredes" src="{% static 'img/index/ig.png' %}" alt="" width="50px"></a>
+                        <a href=""><img class="imgredes" src="{% static 'img/index/whatsapp.png' %}" alt="" width="50px"></a> 
+                    </div>
+            </div>
+            <div class="item"><p>Ubicacion</p>
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.9158722651814!2d-58.50334891114503!3d-34.631566199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9eda4081ad1%3A0x562f7ca5055fb8b6!2sJN%20AUTOMOTORES%20SRL!5e0!3m2!1sen!2sar!4v1727930479085!5m2!1sen!2sar" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="derechos">
+          <hr style="border: 2px solid black;">
+          <p>&copy; 2016 | Consesionaria Nexus |<a href=""> www.Nexus.com</a> </p>
+          <!-- <p>&copy; 2024 Grupo de estudiantes de la Técnica N*1 de Esteban Echeverría. Todos los derechos reservados.</p> -->
+        </div>
+    </footer>
+  <!-- Vincular Bootstrap JS y Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -5,9 +5,9 @@
     {% block intermedio %}
         <img src="{% static 'img/Intermedio/intermedio_visualizar.gif' %}" alt="Carrousel" class="principal_intermedio">
     {% endblock %}
-
     <!-- Main -->
     {% block cuerpo %}
+    <h1 class="tit2">Descubre tu próximo auto</h1>
         <div class="contenedor_visualizar">
             <!-- 
                 i-- Variable para el conteo
@@ -20,13 +20,14 @@
                 <!-- Pasamos la Ruta de la Imagen Registrada -->
                 <img src="{{i.Imagen.url}}" class="card-img-top" alt="Imagen BD">
                 <div class="card-body">
-                  <h4 class="card-title">Modelo: {{i.Nombre}}</h4>
-                  <h5 class="card-title">Año: {{i.Casa}}</h5>
-                  <p class="card-text">Precio Contado: {{i.Hechizo}}</p>
-                  {% if perms.App.change_personajes %}
-                  <a href="{% url 'modificar' i.Codigo %}" class="btn btn-warning">Editar</a>
+                    <h5 class="card-title">Nombre:  {{i.Nombre}}</h5>
+                    <h5 class="card-text">Marca:  {{i.Marca}}</h5>
+                    <h5 class="card-text">Lugar: {{i.Lugar}}</h5>
+                    <h5 class="card-text">Precio a contado: ${{i.Precio}}</h5>
+                  {% if perms.App.change_Vehiculos %}
+                  <a href="{% url 'modificar' i.Codigo %}" class="btn btn-primary">Editar</a>
                   {% endif %}
-                  {% if perms.App.delete_personajes %}
+                  {% if perms.App.delete_Vehiculos %}
                   <a href="{% url 'eliminar' i.Codigo %}" class="btn btn-danger">Eliminar</a>
                   {% endif %}
                 </div>

@@ -126,6 +126,12 @@ body{
     color: rgb(38, 38, 41);
     margin-top: -80px;
 }
+.tit2 {
+    text-align: center;
+    color: rgb(38, 38, 41);
+    margin: 100px auto;
+    margin-bottom: 10px;
+}
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
@@ -139,15 +145,7 @@ body{
         margin-top: -80px;
     }
 }
-/* ----> cartas */
-
 /* -------> cartas */
-.cartaauto {
-    text-decoration: none;
-    color: inherit; /* Esto hereda el color de los elementos dentro del enlace */
-    display: block; /* Hace que el enlace cubra todo el contenido */
-   
-}
 
 .contenedor_visualizar{
     display: flex;
@@ -158,7 +156,7 @@ body{
  }
  .card{
      margin-top: 50px;
-     max-width: 340px;
+     max-width: 400px;
      border:0.1px solid #1a1a19;
      transition: transform 0.70s;
      filter: drop-shadow(0px 0px 1px #1a1a19);
@@ -207,14 +205,20 @@ body{
         justify-content: center; /* Centra las cartas */
     }
  }
-/* ----> imagen con el boton disseño */
+.btn{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* ----> imagen con el boton diseño */
 .contenedorimagen {
     position: relative; /* El contenedor será relativo para que los elementos dentro puedan posicionarse respecto a él */
     display: inline-block; /* Ajusta el tamaño al de la imagen */
     margin-top: 30px;
 }
 
-.btn {
+.btn3 {
     position: absolute; /* Botón será absoluto respecto al contenedor */
     top: 320px; /* Ajusta la posición desde la parte superior */
     left: 16%; /* Lo colocamos centrado horizontalmente */
@@ -235,7 +239,7 @@ body{
     .contenedorimagen{
         margin-top: 30px;
     }
-    .btn {
+    .btn3 {
         top: 220px; /* Ajustamos la posición del botón para pantallas pequeñas */
         left: 50%; /* Centramos el botón horizontalmente */
         width: 200px; /* Reducimos el tamaño del botón */
@@ -344,4 +348,79 @@ footer .derechos a:hover {
     .mapa iframe {
         height: 180px;
     }
+}
+
+/* -------->diseño formularios<------ */
+form {
+    background-color: #021E73;
+    padding: 15px;
+    border-radius: 5px;
+    width: 500px;
+    margin: 120px auto;
+    color: white;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(-1px 1px 5px rgb(255, 255, 255));
+}
+.titform{
+    color: #ffffff;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    color: white;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #b9ffdd;
+}
+
+.volver {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.volver:hover {
+    color: rgb(255, 255, 255);
+    transform: scale(103%);
+    transition: 0.5s;
+}
+#id_Nombre ,#id_Casa,#id_Hechizo, #id_Marca,#id_Lugar{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+}
+.area{
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
 }
