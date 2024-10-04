@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexus</title>
-  <link rel="shortcut icon" href="{% static '/../img/Autos/Nexus.png' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static '/img/Autos/Nexus.png' %}" type="image/x-icon">
   <!-- Vincular Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -107,6 +107,7 @@
               <h5 class="card-text">Marca: {{i.Marca}}</h5>
               <h5 class="card-text">Lugar: {{i.Lugar}}</h5>
               <h5 class="card-text">Precio a contado: ${{i.Precio}}</h5>
+              <a href="{% url 'detalle_vehiculo' i.Codigo %}" class="btn btn-info">Ver Más</a>
               {% if perms.App.change_Vehiculos %}
               <a href="{% url 'modificar' i.Codigo %}" class="btn btn-primary">Editar</a>
               {% endif %}

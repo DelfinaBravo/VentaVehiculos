@@ -23,6 +23,7 @@
                     <h5 class="card-title">Nombre:  {{i.Nombre}}</h5>
                     <h5 class="card-text">Marca:  {{i.Marca}}</h5>
                     <h5 class="card-text">Lugar: {{i.Lugar}}</h5>
+                    <h5 class="card-text">Cantidad: {{i.Cantidad}}</h5>
                     <h5 class="card-text">Precio a contado: ${{i.Precio}}</h5>
                   {% if perms.App.change_Vehiculos %}
                   <a href="{% url 'modificar' i.Codigo %}" class="btn btn-primary">Editar</a>

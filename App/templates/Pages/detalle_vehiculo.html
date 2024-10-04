@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<diseñohtml lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus </title>
+  <link rel="shortcut icon" href="{% static '/img/Autos/Nexus.png' %}" type="image/x-icon">
+  <!-- Vincular Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/detalleauto.css' %}">
+</head>
+
+<body class="body">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Nombre a la izquierda -->
+            <a class="navbar-brand" href="{% url 'inicio' %}"><img src="{% static 'img/Autos/Nexus.png' %}" alt="Logo" title="Logo" class="logotipo"></a>
+            <!-- Botón colapsable en móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Elementos del menú -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Botón para cerrar el menú -->
+                <span class="close-btn"
+                    onclick="document.getElementById('navbarNav').classList.remove('show')">&times;</span>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'agregar' %}">Vende tu auto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'visualizar' %}">Compra tu auto</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    {% csrf_token %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logouts' %}"><h4>Logout</h4></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'login' %}"><h4>Login</h4></a>
+                    </li>
+                  {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="container mt-4">
+        <div class="row align-items-center cuadro" style="padding-top: 20px;">
+            <div class="col-md-6">
+                <img src="{{ vehiculo.Imagen.url }}" alt="{{ vehiculo.Nombre }}" class="img-fluid rounded" style="border-radius: 30px;">
+            </div>
+            <div class="col-md-6 text-white">
+                <h1>{{ vehiculo.Nombre }} ({{ vehiculo.Marca }})</h1>
+                <p><strong>Precio:</strong> ${{ vehiculo.Precio }}</p>
+                <p><strong>Marca:</strong> {{ vehiculo.Marca }}</p>
+                <p><strong>Lugar:</strong> {{ vehiculo.Lugar }}</p>
+                <p class="description">{{ vehiculo.Desripcion }}</p> 
+                <p><strong>Stock disponible:</strong> {{ vehiculo.Cantidad }}</p>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                {% if vehiculo.Cantidad > 0 %}
+                    <form method="POST" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success w-100">Confirmar Compra</button>
+                    </form>
+                {% else %}
+                    <p class="text-danger">No hay stock disponible para este vehículo.</p>
+                {% endif %}
+                {% else %}
+                <p class="text-danger">Debes <a href="{% url 'login' %}">iniciar sesión</a> para realizar la compra.</p>
+               {% endif %}
+                
+                <a href="{% url 'inicio' %}" class="btn btn-primary w-100 mt-2">Volver</a>
+            </div>
+        </div>
+    </div>
+</main>
+   <!-- Sector Footer -->
+   <footer>
+    <div class="grid">
+        <div class="item"><p>Contacto</p>
+            <div class="info">
+                <p>Buenos Aires - Argentina</p>
+                <p>infonexus@gmail.com</p>
+                <p>2152-8250</p>
+            </div>
+        </div>
+        <div class="item"><p>Redes Sociales</p>
+                <div class="redes">
+                    <a href=""> <img class="imgredes" src="{% static 'img/index/facebook.png' %}" alt="" width="50px"></a>
+                    <a href=""><img class="imgredes" src="{% static 'img/index/gorjeo.png' %}" alt="" width="50px"></a>
+                    <a href=""><img class="imgredes" src="{% static 'img/index/ig.png' %}" alt="" width="50px"></a>
+                    <a href=""><img class="imgredes" src="{% static 'img/index/whatsapp.png' %}" alt="" width="50px"></a> 
+                </div>
+        </div>
+        <div class="item"><p>Ubicacion</p>
+            <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.9158722651814!2d-58.50334891114503!3d-34.631566199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9eda4081ad1%3A0x562f7ca5055fb8b6!2sJN%20AUTOMOTORES%20SRL!5e0!3m2!1sen!2sar!4v1727930479085!5m2!1sen!2sar" width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="derechos">
+      <hr style="border: 2px solid black;">
+      <p>&copy; 2016 | Consesionaria Nexus |<a href=""> www.Nexus.com</a></p>
+      <!-- <p>&copy; 2024 Grupo de estudiantes de la Técnica N*1 de Esteban Echeverría. Todos los derechos reservados.</p> -->
+    </div>
+</footer>
+<!-- Vincular Bootstrap JS y Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

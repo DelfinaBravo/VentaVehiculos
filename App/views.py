@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 #---->Importamos el Sector de Formularios
 from .forms import *
 from .models import *
+from django.contrib import messages  # Importa el sistema de mensajes
 #--->Importamos la Libreria de Logout
 from django.contrib.auth import logout
 #--->Importamos la Libreria de Permisos
@@ -39,6 +40,7 @@ def ver_Vehiculos(request):
         'forms':buscar
     }
     return render(request,'Pages/visualizar.html',data)
+
 # boton modificar. 
 @permission_required('App.change_Vehiculos')
 
@@ -58,6 +60,7 @@ def Modificar_Vehiculos(request,Codigo):
 
 # boton eliminar
 @permission_required('App.delete_Vehiculos')
+
 def Eliminar_Vehiculos(request,Codigo):
     buscar=get_object_or_404(Vehiculos,Codigo=Codigo)
     buscar.delete()
@@ -66,3 +69,15 @@ def Eliminar_Vehiculos(request,Codigo):
 def salir(request):
     logout(request)
     return redirect(to='inicio')
+
+def detalle_vehiculo(request, Codigo):
+    vehiculo = get_object_or_404(Vehiculos, Codigo=Codigo)
+    message = None  # Inicializar mensaje como None
+
+    if request.method == 'POST':
+        if vehiculo.Cantidad > 0:
+            vehiculo.Cantidad -= 1
+            vehiculo.save()
+            message = "Compra exitosa!"  # Mensaje de éxito
+
+    return render(request, 'pages/detalle_vehiculo.html', {'vehiculo': vehiculo, 'message': message})

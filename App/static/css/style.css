@@ -424,3 +424,10 @@ input[type="submit"]:hover {
     width: 100px;
     border-radius: 8px;
 }
+
+.principal_intermedio {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Añadir espacio debajo del carrousel */
+}
+

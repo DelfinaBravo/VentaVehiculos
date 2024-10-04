@@ -2,12 +2,15 @@ from django.db import models
 
 # Create your models here.
 class Vehiculos(models.Model):
-    Codigo=models.AutoField(primary_key=True)
-    Nombre=models.TextField(max_length=30)
-    Marca=models.TextField(max_length=30)
-    Precio=models.IntegerField(max_length=30)
-    Lugar=models.TextField(max_length=20)
-    Imagen=models.ImageField(upload_to="autos",null=True)
+    Codigo = models.AutoField(primary_key=True)  
+    Nombre = models.TextField(max_length=30)     
+    Marca = models.TextField(max_length=30)
+    Desripcion = models.TextField(max_length=150, null=True)    
+    Precio = models.IntegerField()  
+    Cantidad = models.PositiveIntegerField()  # Stock disponible             
+    Lugar = models.TextField(max_length=20)     
+    Imagen = models.ImageField(upload_to="autos", null=True)  
+    
 
-    def __int__(self):
-        self.Codigo
+    def __str__(self):
+        return str(self.Codigo)  # Devuelve el código del vehículo como una cadena
