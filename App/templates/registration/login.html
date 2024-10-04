@@ -51,12 +51,13 @@
         </nav>
     </header>
     <main>
-        <form action="php/login.php" method="post" class="conenedor_login">
+        <form method="post">
             <h1 class="titform">Iniciar Sesión</h1>
-            {% csrf_token %} 
-            {{form}}
+            {% csrf_token %}
+            {{ form }}
+            <input type="hidden" name="next" value="{% url 'inicio' %}">
             <input type="submit" value="Login">
-        </form> 
+        </form>
     </main>
     <!-- Sector Footer -->
     <footer>
