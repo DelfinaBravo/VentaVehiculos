@@ -66,9 +66,10 @@
 
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        <p class="text-{{ message.tags }}">{{ message }}</p>
                     {% endfor %}
                 {% endif %}
+
 
                 {% if user.is_authenticated %}
                 {% if vehiculo.Cantidad > 0 %}
