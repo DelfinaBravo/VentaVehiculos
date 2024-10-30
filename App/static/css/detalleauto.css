@@ -255,9 +255,41 @@ footer .derechos a:hover {
         padding: 15px; /* Reduce el padding en dispositivos móviles */
     }
 }
-.description {
-    display: -webkit-box;
 
-    overflow: hidden;
-    text-overflow: ellipsis;
+.row{
+    padding: 30px;
+}
+
+.dat{
+    display:inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+
+.btn-primary{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: auto;
+   
+}
+
+.mensaje1 {
+   color: #ffffff;
+   font-weight: bold;
+   text-align: center;
+   margin-top: 70px;
+}
+
+.mensaje1 a{
+    text-decoration: none;
+    list-style: none;
+    color: #63b9ff;
+}
+
+.mensaje1 a:hover{
+    color: #ffffff;
 }

@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 #---->Importamos el Sector de Formularios
 from .forms import *
 from .models import *
-from django.contrib import messages  # Importa el sistema de mensajes
+from django.contrib import messages  
 #--->Importamos la Libreria de Logout
 from django.contrib.auth import logout
 #--->Importamos la Libreria de Permisos
@@ -19,7 +19,8 @@ def Home(request):
 
 @login_required
 
-@permission_required('App.add_autos')
+@permission_required('App.add_Vehiculos')
+
 def Agregar(request):
     data={
         'forms':NuevoVehiculos()

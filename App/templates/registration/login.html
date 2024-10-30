@@ -35,11 +35,11 @@
                         {% if user.is_authenticated %}
                         {% csrf_token %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logouts' %}"><h4>Logout</h4></a>
+                            <a class="nav-link" href="{% url 'logouts' %}"><h4>Salir</h4></a>
                         </li>
                         {% else %}
                         <li class="nav-item">
-                          <a class="nav-link" href="{% url 'login' %}"><h4>Login</h4></a>
+                          <a class="nav-link" href="{% url 'login' %}"><h4>Acceder</h4></a>
                         </li>
                       {% endif %}
                     </ul>

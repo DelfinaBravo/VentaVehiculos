@@ -38,11 +38,11 @@
                     {% if user.is_authenticated %}
                     {% csrf_token %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logouts' %}"><h4>Logout</h4></a>
+                        <a class="nav-link" href="{% url 'logouts' %}"><h4>Salir</h4></a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'login' %}"><h4>Login</h4></a>
+                      <a class="nav-link" href="{% url 'login' %}"><h4>Acceder</h4></a>
                     </li>
                   {% endif %}
                 </ul>
@@ -57,16 +57,20 @@
                 <img src="{{ vehiculo.Imagen.url }}" alt="{{ vehiculo.Nombre }}" class="img-fluid rounded" style="border-radius: 30px;">
             </div>
             <div class="col-md-6 text-white">
-                <h1>{{ vehiculo.Nombre }} ({{ vehiculo.Marca }})</h1>
-                <p><strong>Precio:</strong> ${{ vehiculo.Precio }}</p>
-                <p><strong>Marca:</strong> {{ vehiculo.Marca }}</p>
-                <p><strong>Lugar:</strong> {{ vehiculo.Lugar }}</p>
-                <p class="description">{{ vehiculo.Desripcion }}</p> 
-                <p><strong>Stock disponible:</strong> {{ vehiculo.Cantidad }}</p>
 
+                <div class="dat">
+                    <h1>{{ vehiculo.Nombre }} ({{ vehiculo.Marca }})</h1>
+                    <p><strong>Precio:</strong> ${{ vehiculo.Precio }}</p>
+                    <p><strong>Marca:</strong> {{ vehiculo.Marca }}</p>
+                    <p><strong>Lugar:</strong> {{ vehiculo.Lugar }}</p>
+                    <p class="description">{{ vehiculo.Desripcion }}</p> 
+                    <p><strong>Stock disponible:</strong> {{ vehiculo.Cantidad }}</p>
+    
+                </div>
+               
                 {% if messages %}
                     {% for message in messages %}
-                        <p class="text-{{ message.tags }}">{{ message }}</p>
+                        <p class="mensaje">{{ message }}</p>
                     {% endfor %}
                 {% endif %}
 
@@ -81,10 +85,10 @@
                     <p class="text-danger">No hay stock disponible para este vehículo.</p>
                 {% endif %}
                 {% else %}
-                <p class="text-danger">Debes <a href="{% url 'login' %}">iniciar sesión</a> para realizar la compra.</p>
+                <p class="mensaje1">Debes <a href="{% url 'login' %}">iniciar sesión</a> para realizar la compra.</p>
                {% endif %}
                 
-                <a href="{% url 'inicio' %}" class="btn btn-primary w-100 mt-2">Volver</a>
+                <a href="{% url 'inicio' %}" class="btn btn-primary w-50 mt-2">Volver</a>
             </div>
         </div>
     </div>

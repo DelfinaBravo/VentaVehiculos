@@ -11,6 +11,5 @@ class Vehiculos(models.Model):
     Lugar = models.TextField(max_length=20)     
     Imagen = models.ImageField(upload_to="autos", null=True)  
     
-
     def __str__(self):
         return str(self.Codigo)  # Devuelve el código del vehículo como una cadena

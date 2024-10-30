@@ -1,4 +1,8 @@
 /* ------> diseño para el navbar o el header */
+*{
+    text-decoration: none;
+    list-style: none;
+}
 body{
     background: #f8f8f8;
 }
@@ -115,7 +119,7 @@ body{
     border-radius: 10px;
     padding: 13px;
     margin: 120px auto; /* Centrar el carrusel */
-    max-width: 1200px; /* Limitar el ancho máximo */
+    max-width: 1500px; /* Limitar el ancho máximo */
 }
 .carousel img{
     border-radius: 20px;
@@ -353,8 +357,8 @@ footer .derechos a:hover {
 /* -------->diseño formularios<------ */
 form {
     background-color: #021E73;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 10px;
     width: 500px;
     margin: 120px auto;
     color: white;
@@ -365,40 +369,116 @@ form {
 .titform{
     color: #ffffff;
     text-align: center;
+    margin-top: 30px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    text-align: left;
+    margin-left: 25px;
     color: white;
+    margin-top: 50px;
+    font-size: 18px;
 }
+
 
 input[type="email"],
 input[type="password"],
 input[type="number"],
-input[type="text"] {
-    width: 100%;
+input[type="text"]{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
     padding: 10px;
     margin-bottom: 15px;
     border: none;
     border-radius: 5px;
-    
+    background: none;
+    border-bottom: solid #4c6a88 2px ;
+    outline: none;
+    color: #ffffff;
+    font-size: 20px;
 }
 
-input[type="submit"] {
-    width: 100%;
+#id_Nombre, #id_Marca, #id_Lugar{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     padding: 10px;
-    background-color: #ffffff;
+    margin-bottom: 15px;
     border: none;
     border-radius: 5px;
-    color: rgb(0, 0, 0);
+    background: none;
+    border-bottom: solid #4c6a88 2px ;
+    outline: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+#id_Desripcion{
+    background-color: #4c6a88;
+    border: none;
+    width: 90%;
+    outline: none;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.contendor_agregar h1{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.contendor_agregar form{
+    width: 50%;
+}
+
+input.btn.btn-secondary {
+    width:30%;
+    text-decoration: none;
+    list-style: none;
+}
+
+input.btn.btn-success {
+    width:30%;
+}
+
+input.btn.btn-success a {
+    text-decoration: none;
+    list-style: none;
+}
+
+
+input[type="submit"] {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding: 5px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    color:#213c92;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-size: 18px;
 }
 
 input[type="submit"]:hover {
-    background-color: #b9ffdd;
+    background-color:#4c6a88;
+    color: #ffffff;
 }
 
 .volver {
